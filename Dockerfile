@@ -1,6 +1,6 @@
 FROM alpine
 
-ENV USERNAME="" PASSWORD="" UID="" GID=""
+ENV USERNAME="" PASSWORD=""
 
 COPY nginx.conf /opt/nginx/conf/nginx.conf
 
@@ -24,6 +24,6 @@ RUN apk update && \
     rm -rf /var/cache/apk/* && \
     rm -rf /tmp/*
 
-EXPOSE 80
+EXPOSE 8080
 
-ENTRYPOINT /entrypoint.sh && /opt/nginx/sbin/nginx -g "daemon off;"
+ENTRYPOINT /entrypoint.sh && /opt/nginx/sbin/nginx
